@@ -27,7 +27,7 @@ const App = () => {
   // Fetch from MongoDB
   const fetchTodos = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/todos");
+      const res = await axios.get("https://todotask-zumn.onrender.com/api/todos");
       setTodos(res.data);
     } catch (err) {
       console.error(" Error fetching todos:", err);
@@ -37,7 +37,7 @@ const App = () => {
   // Add todo
   const addTodo = async (text) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/todos", { text });
+      const res = await axios.post("https://todotask-zumn.onrender.com/api/todos", { text });
       setTodos((prev) => [...prev, res.data]);
     } catch (err) {
       console.error(" Error adding todo:", err);
@@ -57,7 +57,7 @@ const App = () => {
   // Edit todo
   const editTodo = async (id, newText) => {
     try {
-      const res = await axios.put(`http://localhost:5000/api/todos/${id}`, { text: newText });
+      const res = await axios.put(`https://todotask-zumn.onrender.com/api/todos/${id}`, { text: newText });
       setTodos((prev) =>
         prev.map((todo) => (todo._id === id ? res.data : todo))
       );
